@@ -1,7 +1,5 @@
 //백준 스도쿠 문제
 
-package codingTest;
-
 import java.util.Scanner;
 
 public class ex5 {
