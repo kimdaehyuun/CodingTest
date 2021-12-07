@@ -15,15 +15,15 @@ public class BackTracking {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		// 숫자 개수 입
+		// 숫자 개수 입력
 		N = sc.nextInt();
-        // 숫자를 넣을 배열 생
+        // 숫자를 넣을 배열 생성
         num = new int[N];
         
         for (int i = 0; i < N; i++) {
             num[i] = sc.nextInt();
         }
-        // 연산자 개수가 담길 배열 생
+        // 연산자 개수가 담길 배열 생성
         for (int i = 0; i < 4; i++) {
             cal[i] = sc.nextInt();
         }
