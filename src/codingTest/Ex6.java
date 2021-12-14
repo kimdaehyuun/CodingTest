@@ -1,7 +1,7 @@
 package codingTest;
 
 import java.util.Scanner;
-
+// 백준 1003번
 public class Ex6 {
 	private static int N = 0;
 	private static int[] num;
