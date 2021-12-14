@@ -1,4 +1,4 @@
-package codetest;
+package codingTest;
 
 public class ex {
 

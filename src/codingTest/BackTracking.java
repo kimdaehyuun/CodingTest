@@ -1,6 +1,6 @@
 // 백준 14888번 문제
 
-package codetest;
+package codingTest;
 
 import java.util.Scanner;
 
