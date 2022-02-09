@@ -1,2 +1,10 @@
 /.metadata/
+<<<<<<< Updated upstream
 goorm.manifest
+=======
+bin/codingTest/Ex10.class
+src/codingTest/Ex10.java
+bin/codingTest/Ex12.class
+src/codingTest/Ex12.java
+*.class
+>>>>>>> Stashed changes
