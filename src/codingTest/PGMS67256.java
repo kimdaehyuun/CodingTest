@@ -1,4 +1,4 @@
-//프로그래머스 키패드 누르
+//프로그래머스 키패드 누르기
 
 package codingTest;
 
@@ -96,34 +96,6 @@ class PGMS67256 {
                         result += "L";
                         LX = 1;
                         LY = 1;
-                    }
-                }
-            }
-            else if(numbers[i] == 8) {
-                Lcha = Math.abs(LX - 1) + Math.abs(LY - 2); // 왼손에서 거리
-                Rcha = Math.abs(RX - 1) + Math.abs(RY - 2); // 오른손에서 거리
-                // 왼손거리가 더 짧으면
-                if(Lcha < Rcha) {
-                    result += "L";
-                    LX = 1;
-                    LY = 2;
-                } 
-                // 오른손거리가 더 짧으면
-                else if (Lcha > Rcha) {
-                    result += "R";
-                    RX = 1;
-                    RY = 2;
-                }
-                // 거리가 같으면 손잡이 대로
-                else {
-                    if(hand.indexOf("right") > -1){
-                        result += "R";
-                        RX = 1;
-                        RY = 2;
-                    } else {
-                        result += "L";
-                        LX = 1;
-                        LY = 2;
                     }
                 }
             }
