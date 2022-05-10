@@ -2,117 +2,50 @@
 
 package codingTest;
 
+import java.util.HashMap;
+
 public class Kakao1 {
 	public static void main(String[] args) {
-		String[] survey = {"TR", "RT", "RT"};
-		int[] choices = {7, 1, 3};
+		String[] survey = {"AN", "CF", "MJ", "RT", "NA"};
+		int[] choices = {5, 3, 2, 7, 5};
 		String result = "";
 		
-		int Rjumsu = 0;
-		int Tjumsu = 0;
-		int Cjumsu = 0;
-		int Fjumsu = 0;
-		int Jjumsu = 0;
-		int Mjumsu = 0;
-		int Ajumsu = 0;
-		int Njumsu = 0;
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("Rjumsu", 0);
+		map.put("Tjumsu", 0);
+		map.put("Cjumsu", 0);
+		map.put("Fjumsu", 0);
+		map.put("Jjumsu", 0);
+		map.put("Mjumsu", 0);
+		map.put("Ajumsu", 0);
+		map.put("Njumsu", 0);
 		
 		for (int i = 0; i < choices.length; i++) {
 			String[] split = survey[i].split("");
 			String front = split[0];
 			String back = split[1];
+			String frontJumsu = front + "jumsu";
+			String backJumsu = back + "jumsu";
+			int originalJumsu = 0;
+			
 			if ( choices[i] - 4 > 0 ) { // 뒤에꺼 점수를 추가해야함
-				switch(back) {
-				case "R":
-					Rjumsu += choices[i] - 4;
-					break;
-				case "T":
-					Tjumsu += choices[i] - 4;
-					break;
-				case "C":
-					Cjumsu += choices[i] - 4;
-					break;
-				case "F":
-					Fjumsu += choices[i] - 4;
-					break;
-				case "J":
-					Jjumsu += choices[i] - 4;
-					break;
-				case "M":
-					Mjumsu += choices[i] - 4;
-					break;
-				case "A":
-					Ajumsu += choices[i] - 4;
-					break;
-				case "N":
-					Njumsu += choices[i] - 4;
-					break;
-				}
+				originalJumsu = map.get(backJumsu);
+				int sub = choices[i] - 4;
+				originalJumsu += sub;
+				map.replace(backJumsu, originalJumsu);
 			} else if( choices[i] - 4 < 0 ) { // 앞에꺼 점수를 추가해야함
-				switch(front) {
-				case "R":
-					Rjumsu += 4 - choices[i];
-					break;
-				case "T":
-					Tjumsu += 4 - choices[i];
-					break;
-				case "C":
-					Cjumsu += 4 - choices[i];
-					break;
-				case "F":
-					Fjumsu += 4 - choices[i];
-					break;
-				case "J":
-					Jjumsu += 4 - choices[i];
-					break;
-				case "M":
-					Mjumsu += 4 - choices[i];
-					break;
-				case "A":
-					Ajumsu += 4 - choices[i];
-					break;
-				case "N":
-					Njumsu += 4 - choices[i];
-					break;
-				}
+				originalJumsu = map.get(frontJumsu);
+				int sub = 4 - choices[i];
+				originalJumsu += sub;
+				map.replace(frontJumsu, originalJumsu);
 			}
 		}
-		
-		if (Rjumsu > Tjumsu) {
-			result += "R";
-		} else if (Rjumsu < Tjumsu) {
-			result += "T";
-		} else {
-			result += "R";
-		}
-		
-		if (Cjumsu > Fjumsu) {
-			result += "C";
-		} else if (Cjumsu < Fjumsu) {
-			result += "F";
-		} else {
-			result += "C";
-		}
-		
-		if (Jjumsu > Mjumsu) {
-			result += "J";
-		} else if (Jjumsu < Mjumsu) {
-			result += "M";
-		} else {
-			result += "J";
-		}
-		
-		if (Ajumsu > Njumsu) {
-			result += "A";
-		} else if (Ajumsu < Njumsu) {
-			result += "N";
-		} else {
-			result += "A";
-		}
+		result += (map.get("Rjumsu") >= map.get("Tjumsu")) ? "R" : "T";
+		result += (map.get("Cjumsu") >= map.get("Fjumsu")) ? "C" : "F";
+		result += (map.get("Jjumsu") >= map.get("Mjumsu")) ? "J" : "M";
+		result += (map.get("Ajumsu") >= map.get("Njumsu")) ? "A" : "N";
 		
 		System.out.println(result);
-		
 	}
-	
 
 }
